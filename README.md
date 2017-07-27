@@ -2,11 +2,12 @@
 
 An awesome "service" for an Await-able Transparent, Custom, Popup Input Dialog in Xamarin.Forms!
 
-<br />
-
 It's a brave new world out there, so we better be prepared! ;) 
-This is actually a MVVM-style service implementation for my original <b>XFCustomInputAlertDialog</b> project implementation! :) (Since a lot of people asked me how they could use that implementation in a MVVM-Friendly way)
-<b>https://github.com/UdaraAlwis/Xamarin-Playground/tree/master/XFCustomInputAlertDialog</b>
+
+This is actually a MVVM-style service implementation for my original <b>XFCustomInputAlertDialog</b> project implementation! :) <b>https://github.com/UdaraAlwis/Xamarin-Playground/tree/master/XFCustomInputAlertDialog</b>
+(Since a lot of people asked me how they could use that implementation in a MVVM-Friendly way)
+
+So here you go fellas...
 
 <br />
 
