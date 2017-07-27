@@ -7,7 +7,6 @@
     xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     mvvm:ViewModelLocator.AutowireViewModel="True">
 
-
     <StackLayout Padding="10,20,10,10">
         <Label
             Margin="0,10,0,10"
@@ -22,12 +21,12 @@
             FontSize="Medium"
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
-            Text="-Input Results will show up here-" />
+            Text="{Binding InputResult, Mode=TwoWay}" />
 
         <Button
             x:Name="OpenTextInputAlertDialogButton"
             BackgroundColor="DodgerBlue"
-            Command="OpenTextInputAlertDialogButton_OnClicked"
+            Command="{Binding OpenTextInputAlertDialogCommand}"
             HorizontalOptions="FillAndExpand"
             Text="Text Input Alert Dialog!"
             TextColor="White" />
@@ -35,7 +34,7 @@
         <Button
             x:Name="OpenCancellableTextInputAlertDialogButton"
             BackgroundColor="#0066ff"
-            Command="OpenCancellableTextInputAlertDialogButton_OnClicked"
+            Command="{Binding OpenCancellableTextInputAlertDialogCommand}"
             HorizontalOptions="FillAndExpand"
             Text="Text Input Alert Dialog (Cancellable)!"
             TextColor="White" />
@@ -43,7 +42,7 @@
         <Button
             x:Name="OpenSelectableInputAlertDialogButton"
             BackgroundColor="#cc33ff"
-            Command="OpenSelectableInputAlertDialogButton_OnClicked"
+            Command="{Binding OpenSelectableInputAlertDialogCommand}"
             HorizontalOptions="FillAndExpand"
             Text="Selectable List Input Alert Dialog!"
             TextColor="White" />
@@ -51,7 +50,7 @@
         <Button
             x:Name="OpenSliderInputAlertDialogButton"
             BackgroundColor="#ff3399"
-            Command="OpenSliderInputAlertDialogButton_OnClicked"
+            Command="{Binding OpenSliderInputAlertDialogCommand}"
             HorizontalOptions="FillAndExpand"
             Text="Slider Input Alert Dialog!"
             TextColor="White" />
@@ -59,7 +58,7 @@
         <Button
             x:Name="OpenMultipleDataInputAlertDialogButton"
             BackgroundColor="#ff3300"
-            Command="OpenMultipleDataInputAlertDialogButton_OnClicked"
+            Command="{Binding OpenMultipleDataInputAlertDialogCommand}"
             HorizontalOptions="FillAndExpand"
             Text="Multiple Data Input Alert Dialog!"
             TextColor="White" />

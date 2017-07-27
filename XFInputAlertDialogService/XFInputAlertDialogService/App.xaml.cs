@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Practices.Unity;
 using Prism.Unity;
 using Xamarin.Forms;
+using XFInputAlertDialogService.Interfaces;
+using XFInputAlertDialogService.Services;
 
 namespace XFInputAlertDialogService
 {
@@ -15,12 +18,16 @@ namespace XFInputAlertDialogService
         {
             InitializeComponent();
             
-            NavigationService.NavigateAsync($"{nameof(MainPage)}");
+            NavigationService.NavigateAsync($"{nameof(Views.MainPage)}");
         }
 
         protected override void RegisterTypes()
         {
+            // pages registration
+            Container.RegisterTypeForNavigation<Views.MainPage>();
 
+            // services registration
+            Container.RegisterType<IInputAlertDialogService, InputAlertDialogService>();
         }
 
         protected override void OnStart()

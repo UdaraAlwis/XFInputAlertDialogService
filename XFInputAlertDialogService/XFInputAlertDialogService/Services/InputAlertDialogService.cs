@@ -16,8 +16,8 @@ namespace XFInputAlertDialogService.Services
             string closeButtonText, string validationLabelText)
         {
             // create the TextInputView
-            var inputView = new TextInputView(
-                "What's your name?", "enter here...", "Ok", "Ops! Can't leave this empty!");
+            var inputView = new TextInputView(titleText, placeHolderText,
+            closeButtonText, validationLabelText);
 
             // create the Transparent Popup Page
             // of type string since we need a string return
@@ -38,25 +38,16 @@ namespace XFInputAlertDialogService.Services
                     }
                 };
 
-            // Push the page to Navigation Stack
-            await PopupNavigation.PushAsync(popup);
-
-            // await for the user to enter the text input
-            var result = await popup.PageClosedTask;
-
-            // Pop the page from Navigation Stack
-            await PopupNavigation.PopAsync();
-
             // return user inserted text value
-            return result;
+            return await Navigate(popup);
         }
 
         public async Task<string> OpenCancellableTextInputAlertDialog(string titleText, string placeHolderText, string saveButtonText,
             string cancelButtonText, string validationText)
         {
             // create the TextInputView
-            var inputView = new TextInputCancellableView(
-                "How's your day mate?", "enter here...", "Save", "Cancel", "Ops! Can't leave this empty!");
+            var inputView = new TextInputCancellableView(titleText, placeHolderText, saveButtonText,
+             cancelButtonText,  validationText);
 
             // create the Transparent Popup Page
             // of type string since we need a string return
@@ -84,17 +75,8 @@ namespace XFInputAlertDialogService.Services
                     popup.PageClosedTaskCompletionSource.SetResult(null);
                 };
 
-            // Push the page to Navigation Stack
-            await PopupNavigation.PushAsync(popup);
-
-            // await for the user to enter the text input
-            var result = await popup.PageClosedTask;
-
-            // Pop the page from Navigation Stack
-            await PopupNavigation.PopAsync();
-
             // return user inserted text value
-            return result;
+            return await Navigate(popup);
         }
 
         public async Task<string> OpenSelectableInputAlertDialog(string titleText, IList<string> selectiondataSource, string saveButtonText,
@@ -133,17 +115,8 @@ namespace XFInputAlertDialogService.Services
                     popup.PageClosedTaskCompletionSource.SetResult(null);
                 };
 
-            // Push the page to Navigation Stack
-            await PopupNavigation.PushAsync(popup);
-
-            // await for the user to enter the text input
-            var result = await popup.PageClosedTask;
-
-            // Pop the page from Navigation Stack
-            await PopupNavigation.PopAsync();
-
             // return user inserted text value
-            return result;
+            return await Navigate(popup);
         }
 
         public async Task<double> OpenSliderInputAlertDialog(string titleText, double minValue, double maxValue, string saveButtonText,
@@ -180,17 +153,8 @@ namespace XFInputAlertDialogService.Services
                     popup.PageClosedTaskCompletionSource.SetResult(0);
                 };
 
-            // Push the page to Navigation Stack
-            await PopupNavigation.PushAsync(popup);
-
-            // await for the user to enter the text input
-            var result = await popup.PageClosedTask;
-
-            // Pop the page from Navigation Stack
-            await PopupNavigation.PopAsync();
-
             // return user inserted text value
-            return result;
+            return await Navigate(popup);
         }
 
         public async Task<MyDataModel> OpenMultipleDataInputAlertDialog(string title1Text, string title2Text, string entry1PlaceholderValue,
@@ -198,10 +162,9 @@ namespace XFInputAlertDialogService.Services
             string cancelButtonText)
         {
             // create the TextInputView
-            var inputView = new MultipleDataInputView(
-                "What's your Name?", "What's your Age?",
-                "First Name", "Last Name", 0, 40,
-                "Save", "Cancel");
+            var inputView = new MultipleDataInputView(title1Text, title2Text, entry1PlaceholderValue,
+            entry2PlaceholderValue, sliderMinValue, sliderMaxValue, saveButtonText,
+            cancelButtonText);
 
             // create the Transparent Popup Page
             // of type string since we need a string return
@@ -245,6 +208,18 @@ namespace XFInputAlertDialogService.Services
                     popup.PageClosedTaskCompletionSource.SetResult(null);
                 };
 
+            // return user inserted text value
+            return await Navigate(popup);
+        }
+
+        /// <summary>
+        /// Handle popup page Navigation
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="popup"></param>
+        /// <returns></returns>
+        private async Task<T> Navigate<T>(InputAlertDialogBase<T> popup)
+        {
             // Push the page to Navigation Stack
             await PopupNavigation.PushAsync(popup);
 
@@ -254,7 +229,6 @@ namespace XFInputAlertDialogService.Services
             // Pop the page from Navigation Stack
             await PopupNavigation.PopAsync();
 
-            // return user inserted text value
             return result;
         }
     }
