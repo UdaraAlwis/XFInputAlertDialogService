@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace XFInputAlertDialogService
+namespace XFInputAlertDialogService.Views
 {
     public partial class MainPage : ContentPage
     {

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="XFInputAlertDialogService.Controls.InputViews.MultipleDataInputView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <Grid
+            Padding="10"
+            BackgroundColor="White"
+            HorizontalOptions="CenterAndExpand"
+            RowSpacing="5"
+            VerticalOptions="CenterAndExpand"
+            WidthRequest="200">
+            <Label
+                x:Name="TitleLabel1"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                FontSize="Medium"
+                Text="Enter the values:" />
+
+            <Entry
+                x:Name="TextEntry1"
+                Grid.Row="1"
+                Grid.Column="0"
+                Placeholder="Value 1" />
+            <Entry
+                x:Name="TextEntry2"
+                Grid.Row="1"
+                Grid.Column="1"
+                Placeholder="Value 2" />
+
+            <Label
+                x:Name="TitleLabel2"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                FontSize="Medium"
+                Text="Enter the values:" />
+
+            <Label
+                x:Name="InputSliderValueLabel"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                FontSize="Medium"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="[ slide to set a value ]" />
+            <Slider
+                x:Name="AgeSlider"
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Maximum="10"
+                Minimum="0" />
+
+
+            <Label
+                x:Name="ValidationLabel"
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                FontSize="Micro"
+                IsVisible="False"
+                Text="Ops! Looks like you've missed something!"
+                TextColor="Red" />
+
+            <Grid
+                Grid.Row="6"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+                <Button
+                    x:Name="SaveButton"
+                    Grid.Column="0"
+                    BackgroundColor="DodgerBlue"
+                    Text="Save"
+                    TextColor="White">
+                    <Button.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="40" />
+                            <On Platform="iOS" Value="30" />
+                        </OnPlatform>
+                    </Button.HeightRequest>
+                </Button>
+                <Button
+                    x:Name="CancelButton"
+                    Grid.Column="1"
+                    BackgroundColor="Gray"
+                    Text="Cancel"
+                    TextColor="White">
+                    <Button.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="40" />
+                            <On Platform="iOS" Value="30" />
+                        </OnPlatform>
+                    </Button.HeightRequest>
+                </Button>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
